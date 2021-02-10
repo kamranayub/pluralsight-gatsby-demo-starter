@@ -6,7 +6,6 @@
 .header {
   display: flex;
   align-items: center;
-  max-height: 100px;
 }
 
 .logo {
@@ -67,4 +66,32 @@
   float: right;
   clear: right;
   padding: 1em 0;
+}
+
+.end {
+  flex: 0 1;
+  display: flex;
+}
+
+.divider {
+  height: 90px;
+  border: 1px solid #BDFEF2;
+  margin: 0px 40px;
+  display: inline-block;
+}
+
+.signInButton {
+  margin: 30px 0;
+}
+
+.signInButton img {
+  margin-left: 6px;
+  width: 32px;
+  height: 32px;
+}
+
+.signInButton a {
+  color: #BDFEF2;
+  text-decoration: none;
+  white-space: nowrap;
 }
