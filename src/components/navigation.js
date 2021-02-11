@@ -6,7 +6,7 @@ export default (props) => (
   <nav role="navigation" {...props}>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <Link to="/blog">Our story</Link>
+        <Link to="/blog">All Posts</Link>
       </li>
       <li className={styles.navigationItem}>
         <Link to="/">Brands</Link>

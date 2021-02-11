@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
+import Head from '../components/head'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
@@ -15,10 +15,7 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle}>
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-          </Helmet>
+          <Head title={siteTitle} />
           <Hero data={author.node} />
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
