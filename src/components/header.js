@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Container from './container'
-import Navigation from './navigation';
+import Navigation from './navigation'
 import styles from './header.module.css'
 import logo from './logo.svg'
 import avatar from './avatar.svg'
@@ -28,8 +29,10 @@ const SignInButton = () => (
 export default () => (
   <div className={styles.wrapper}>
     <Container className={styles.header}>
-      <img src={logo} className={styles.logo} alt="logo" />
-      <span className={styles.tagline}>MANIACALLY TAKING TECH TO THE GLOBE</span>
+      <Link to="/" className={styles.logo}>
+        <img src={logo} alt="logo" />
+      </Link>
+      <span className={styles.tagline}>ENGINEERING BLOGS</span>
       <div className={styles.middle}>
         <Search />
         <Navigation className={styles.navigation} />
