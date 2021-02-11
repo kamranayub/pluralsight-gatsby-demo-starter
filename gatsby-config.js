@@ -36,7 +36,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful starter",
+    title: "Globomantics Engineering",
+    authorId: "15jwOBqpxqSAOy2eOO4S0m"
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
