@@ -8,14 +8,16 @@ const config = require('./gatsby-config')
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
-  if (page.path === '/' || page.path === '/blog/') {
-    const oldPage = { ...page }
+  deletePage(page)
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
 
-    page.context.authorId = config.siteMetadata.authorId
-
-    deletePage(oldPage)
-    createPage(page)
-  }
+      // authorId will now be passed as $authorId to GraphQL query arguments
+      authorId: config.siteMetadata.authorId
+    }
+  })
 }
 
 /**
