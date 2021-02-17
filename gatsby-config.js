@@ -37,7 +37,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: "Globomantics Engineering",
-    authorId: "15jwOBqpxqSAOy2eOO4S0m"
+    authorId: "15jwOBqpxqSAOy2eOO4S0m" // YL4ATa1RwAn9uZqw29KU7 
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
