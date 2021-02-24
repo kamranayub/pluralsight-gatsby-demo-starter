@@ -40,7 +40,7 @@ module.exports = {
   siteMetadata: {
     title: "Globomantics Engineering",
     description: "Blogs for Globomantics engineers",
-    siteUrl: "https://engineering.globomantics.com/",
+    siteUrl: "https://engineering.globomantics.com",
     authorId
   },
   pathPrefix: "/gatsby-contentful-starter",
@@ -75,8 +75,8 @@ module.exports = {
                   title: edge.node.title,
                   description: edge.node.description.childMarkdownRemark.excerpt,
                   date: edge.node.publishDate,
-                  url: site.siteMetadata.siteUrl + edge.node.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.slug,
+                  url: site.siteMetadata.siteUrl + "/" + edge.node.slug,
+                  guid: edge.node.contentful_id,
                   custom_elements: [{ "content:encoded": edge.node.description.childMarkdownRemark.html }],
                 }
               })
