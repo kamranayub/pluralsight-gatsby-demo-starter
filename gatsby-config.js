@@ -77,6 +77,7 @@ module.exports = {
                   date: edge.node.publishDate,
                   url: site.siteMetadata.siteUrl + "/" + edge.node.slug,
                   guid: edge.node.contentful_id,
+                  author: edge.node.author.name,
                   custom_elements: [{ "content:encoded": edge.node.description.childMarkdownRemark.html }],
                 }
               })
@@ -97,6 +98,9 @@ module.exports = {
                           excerpt
                           html
                         }
+                      }
+                      author {
+                        name
                       }
                       contentful_id
                     }
