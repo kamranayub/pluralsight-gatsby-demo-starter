@@ -37,8 +37,11 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+  query BlogIndexQuery($authorId: String) {
+    allContentfulBlogPost(
+      filter: { author: { contentful_id: { eq: $authorId } } },
+      sort: { fields: [publishDate], order: DESC }
+    ) {
       edges {
         node {
           title

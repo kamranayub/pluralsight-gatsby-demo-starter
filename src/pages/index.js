@@ -38,8 +38,11 @@ class RootIndex extends React.Component {
 export default RootIndex
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+  query HomeQuery($authorId: String) {
+    allContentfulBlogPost(
+      filter: { author: { contentful_id: { eq: $authorId } } }, 
+      sort: { fields: [publishDate], order: DESC }
+    ) {
       edges {
         node {
           title
@@ -60,7 +63,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
+      filter: { contentful_id: { eq: $authorId } }
     ) {
       edges {
         node {
