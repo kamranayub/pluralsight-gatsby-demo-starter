@@ -4,9 +4,6 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 20vh;
-  max-height: 100px;
-  font-size: 1.25em;
 }
 
 .navigationItem {
@@ -16,5 +13,7 @@
 }
 
 .navigationItem a {
-  color: currentColor;
+  color: #bdfef2;
+  text-decoration: none;
+  font-size: 14px;
 }
