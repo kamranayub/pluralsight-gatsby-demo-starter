@@ -3,6 +3,7 @@ require("dotenv").config({
 });
 
 const contentfulConfig = {
+  authorId: process.env.CONTENTFUL_AUTHOR_ID,
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken:
     process.env.CONTENTFUL_ACCESS_TOKEN ||
@@ -26,7 +27,7 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
 }
 
-const { spaceId, accessToken } = contentfulConfig;
+const { spaceId, accessToken, authorId } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
@@ -34,7 +35,11 @@ if (!spaceId || !accessToken) {
   );
 }
 
-const authorId = "15jwOBqpxqSAOy2eOO4S0m"; // YL4ATa1RwAn9uZqw29KU7
+if (!authorId) {
+  throw new Error(
+    "Contentful authorId needs to be provided"
+  )
+}
 
 module.exports = {
   siteMetadata: {
@@ -54,64 +59,9 @@ module.exports = {
       options: contentfulConfig,
     },
     {
-      resolve: "gatsby-plugin-feed",
+      resolve: 'globomantics-feed-plugin',
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allContentfulBlogPost } }) => {
-              return allContentfulBlogPost.edges.map(edge => {
-                return {
-                  title: edge.node.title,
-                  description: edge.node.description.childMarkdownRemark.excerpt,
-                  date: edge.node.publishDate,
-                  url: site.siteMetadata.siteUrl + "/" + edge.node.slug,
-                  guid: edge.node.contentful_id,
-                  author: edge.node.author.name,
-                  custom_elements: [{ "content:encoded": edge.node.description.childMarkdownRemark.html }],
-                }
-              })
-            },
-            query: `
-              {
-                allContentfulBlogPost(
-                  sort: {fields: [publishDate], order: DESC}, 
-                  filter: {author: {contentful_id: {eq: "${authorId}"}}}
-                ) {
-                  edges {
-                    node {
-                      title
-                      slug
-                      publishDate
-                      description {
-                        childMarkdownRemark {
-                          excerpt
-                          html
-                        }
-                      }
-                      author {
-                        name
-                      }
-                      contentful_id
-                    }
-                  }
-                }
-              }
-            `,
-            output: "/rss.xml",
-            title: "Globomantics Engineering RSS Feed"
-          },
-        ],
+        authorId
       }
     }
   ],
