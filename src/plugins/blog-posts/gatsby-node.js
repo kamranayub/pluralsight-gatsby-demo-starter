@@ -1,14 +1,15 @@
-const path = require("path");
-const config = require(path.resolve("./gatsby-config.js"));
-
-exports.onPreInit = ({ reporter }) =>
-  reporter.info("Initialized blog-posts plugin");
+exports.onPreInit = ({ reporter }) => reporter.info('Initialized blog-posts plugin');
 
 /**
  * Dynamically create pages for blog posts
  */
-exports.createPages = async ({ reporter, graphql, actions }) => {
-  const { createPage } = actions;
+exports.createPages = async ({ reporter, graphql, actions }, pluginOptions) => {
+  const { createPage } = actions
+  const { authorId, blogPathPrefix = '/blog' } = pluginOptions
+
+  if (!authorId) {
+    reporter.panic('A Contentful author ID is required to retrieve blog posts');
+  }
 
   const blogPost = require.resolve("./templates/blog-post.js");
   const result = await graphql(
@@ -27,7 +28,7 @@ exports.createPages = async ({ reporter, graphql, actions }) => {
       }
     `,
     {
-      authorId: config.siteMetadata.authorId,
+      authorId
     }
   );
 
@@ -40,7 +41,7 @@ exports.createPages = async ({ reporter, graphql, actions }) => {
   const posts = result.data.allContentfulBlogPost.edges;
   posts.forEach((post) => {
     createPage({
-      path: `/blog/${post.node.slug}/`,
+      path: `${blogPathPrefix}/${post.node.slug}/`,
       component: blogPost,
       context: {
         slug: post.node.slug,
