@@ -34,10 +34,12 @@ if (!spaceId || !accessToken) {
   );
 }
 
+const authorId = "15jwOBqpxqSAOy2eOO4S0m"; // YL4ATa1RwAn9uZqw29KU7 
+
 module.exports = {
   siteMetadata: {
     title: "Globomantics Engineering",
-    authorId: "15jwOBqpxqSAOy2eOO4S0m" // YL4ATa1RwAn9uZqw29KU7 
+    authorId
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
@@ -50,7 +52,8 @@ module.exports = {
       options: contentfulConfig,
     },
     {
-      resolve: require.resolve("./src/plugins/blog-posts")
+      resolve: require.resolve("./src/plugins/blog-posts"),
+      options: { authorId, blogPathPrefix: '/blog' }
     }
   ],
 };
