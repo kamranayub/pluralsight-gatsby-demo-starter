@@ -49,6 +49,8 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
-    "meta-plugin"
+    {
+      resolve: require.resolve('./src/plugins/meta-plugin')
+    }
   ],
 };
