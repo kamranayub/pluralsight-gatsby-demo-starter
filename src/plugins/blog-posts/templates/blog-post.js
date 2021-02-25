@@ -2,10 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
-import Head from '../components/head'
-import Layout from '../components/layout'
+import Head from '../../../components/head'
+import Layout from '../../../components/layout'
 
-import heroStyles from '../components/hero.module.css'
+import heroStyles from '../../../components/hero.module.css'
 
 class BlogPostTemplate extends React.Component {
   render() {

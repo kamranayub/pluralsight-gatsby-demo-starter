@@ -49,5 +49,8 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
+    {
+      resolve: require.resolve("./src/plugins/blog-posts")
+    }
   ],
 };
