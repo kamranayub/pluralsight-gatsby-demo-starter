@@ -1,0 +1,1 @@
+exports.onPreInit = () => console.log('meta-plugin onPreInit');
