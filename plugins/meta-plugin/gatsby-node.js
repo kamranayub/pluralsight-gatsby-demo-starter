@@ -1,6 +1,6 @@
-const fs = require('fs');
 const path = require('path');
 const util = require('util');
+const writeFile = util.promisify(require('fs').writeFile);
 const exec = util.promisify(require('child_process').exec);
 
 const publicPath = './public';
@@ -28,7 +28,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
     buildTime
   };
 
-  fs.writeFileSync(path.join(publicPath, 'meta.json'), JSON.stringify(meta, null, ' '));
+  await writeFile(path.join(publicPath, 'meta.json'), JSON.stringify(meta, null, ' '));
 
   reporter.info('Wrote meta.json file with build metadata');
 }
