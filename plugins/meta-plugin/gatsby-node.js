@@ -5,7 +5,8 @@ const exec = util.promisify(require("child_process").exec);
 
 exports.onPostBuild = async ({ graphql, reporter }) => {
   const { stdout: sha } = await exec("git rev-parse HEAD");
-
+  const branch = process.env.BRANCH;
+  
   const { data } = await graphql(`
     {
       siteBuildMetadata {
@@ -16,7 +17,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
 
   const meta = {
     sha: sha?.trim(),
-    branch: process.env.BRANCH,
+    branch,
     buildTime: data.siteBuildMetadata.buildTime,
   };
 
