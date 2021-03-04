@@ -1,18 +1,22 @@
-const config = require('../../../gatsby-config');
+const path = require("path");
+const config = require(path.resolve("./gatsby-config.js"));
 
-exports.onPreInit = ({ reporter }) => reporter.info('Initialized blog-posts plugin');
+exports.onPreInit = ({ reporter }) =>
+  reporter.info("Initialized blog-posts plugin");
 
 /**
  * Dynamically create pages for blog posts
  */
 exports.createPages = async ({ reporter, graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogPost = require.resolve('./templates/blog-post.js')
+  const blogPost = require.resolve("./templates/blog-post.js");
   const result = await graphql(
     `
       query AuthorPosts($authorId: String) {
-        allContentfulBlogPost(filter: { author: { contentful_id: { eq: $authorId } } }) {
+        allContentfulBlogPost(
+          filter: { author: { contentful_id: { eq: $authorId } } }
+        ) {
           edges {
             node {
               title
@@ -23,24 +27,26 @@ exports.createPages = async ({ reporter, graphql, actions }) => {
       }
     `,
     {
-      authorId: config.siteMetadata.authorId
+      authorId: config.siteMetadata.authorId,
     }
   );
 
   if (result.errors) {
-    reporter.panic('Could not retrieve blog posts', result.errors)
+    console.log(result.errors);
+    reporter.panic("Could not retrieve blog posts");
+    return;
   }
 
-  const posts = result.data.allContentfulBlogPost.edges
-  posts.forEach(post => {
+  const posts = result.data.allContentfulBlogPost.edges;
+  posts.forEach((post) => {
     createPage({
       path: `/blog/${post.node.slug}/`,
       component: blogPost,
       context: {
         slug: post.node.slug,
       },
-    })
-  })
+    });
+  });
 
   reporter.info(`Generated ${posts.length} blog posts using template`);
-}
+};
