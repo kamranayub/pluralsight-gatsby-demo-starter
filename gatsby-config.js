@@ -53,7 +53,7 @@ module.exports = {
     },
     {
       resolve: require.resolve("./src/plugins/blog-posts"),
-      options: { authorId, blogPathPrefix: '/blog' }
+      options: { authorId }
     }
   ],
 };
