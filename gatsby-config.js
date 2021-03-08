@@ -50,7 +50,7 @@ module.exports = {
       options: contentfulConfig,
     },
     {
-      resolve: "gatsby-source-globomantics-glossary",
+      resolve: "@kamranayub/gatsby-source-globomantics-glossary",
       options: {
         apiKey: "your_secret_token_here",
       },
