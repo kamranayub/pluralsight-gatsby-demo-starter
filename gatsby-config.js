@@ -37,23 +37,24 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: "Globomantics Engineering",
-    authorId: "15jwOBqpxqSAOy2eOO4S0m" // YL4ATa1RwAn9uZqw29KU7 
+    authorId: "15jwOBqpxqSAOy2eOO4S0m", // YL4ATa1RwAn9uZqw29KU7
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-source-contentful",
-      options: contentfulConfig,
-    },
+    "gatsby-plugin-sharp",    
     {
       resolve: "@kamranayub/gatsby-source-globomantics-glossary",
       options: {
         apiKey: "your_secret_token_here",
       },
     },
+    {
+      resolve: "gatsby-source-contentful",
+      options: contentfulConfig,
+    },
+    "@kamranayub/gatsby-transformer-globomantics-glossary",
   ],
 };
