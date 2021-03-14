@@ -8,7 +8,7 @@
     "url": "https://github.com/contentful/starter-gatsby-blog/issues"
   },
   "dependencies": {
-    "@kamranayub/globomantics-blog-theme": "1.0.0-pr-8.1",
+    "@kamranayub/gatsby-theme-globomantics-blog": "1.0.0-pr-8.1",
     "gatsby": "^2.32.4",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
