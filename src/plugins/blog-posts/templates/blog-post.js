@@ -45,14 +45,14 @@ class BlogPostTemplate extends React.Component {
             />
             <hr />
             <h3>Glossary</h3>
-            <dl class={styles.glossary}>
+            <dl className={styles.glossary}>
               {terms.map(({ term }) => (
-                <>
+                <React.Fragment key={term.abbreviation}>
                   <dt>
                     {term.abbreviation} ({term.name})
                   </dt>
                   <dd>{term.description}</dd>
-                </>
+                </React.Fragment>
               ))}
             </dl>
           </div>
