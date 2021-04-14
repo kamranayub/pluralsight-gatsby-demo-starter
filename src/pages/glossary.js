@@ -4,7 +4,7 @@ import get from "lodash/get";
 import Head from "../components/head";
 import Layout from "../components/layout";
 
-import { hero, glossaryList } from "./glossary.module.css"
+import { hero, glossaryList } from "./glossary.module.css";
 
 class GlossaryIndex extends React.Component {
   render() {
