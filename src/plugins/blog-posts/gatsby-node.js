@@ -1,3 +1,12 @@
+/**
+ * Validate plugin options
+ */
+exports.pluginOptionsSchema = ({ Joi }) =>
+  Joi.object({
+    authorId: Joi.string().required(),
+    blogPathPrefix: Joi.string(),
+  });
+
 exports.onPreInit = ({ reporter }) =>
   reporter.info("Initialized blog-posts plugin");
 
