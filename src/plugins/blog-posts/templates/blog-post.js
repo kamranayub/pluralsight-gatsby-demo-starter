@@ -1,16 +1,22 @@
 import React from "react";
 import { graphql } from "gatsby";
 import get from "lodash/get";
+import sortBy from "lodash/sortBy";
+import reverse from "lodash/reverse";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Head from "../../../components/head";
 import Layout from "../../../components/layout";
 
+import { glossary } from "./blog-post.module.css";
 import * as heroStyles from "../../../components/hero.module.css";
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, "data.contentfulBlogPost");
     const siteTitle = get(this.props, "data.site.siteMetadata.title");
+    const terms = reverse(
+      sortBy(get(post, "body.childGlossaryTermRefs.terms"), "count")
+    );
 
     return (
       <Layout location={this.props.location}>
@@ -38,6 +44,18 @@ class BlogPostTemplate extends React.Component {
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
+            <hr />
+            <h3>Glossary</h3>
+            <dl className={glossary}>
+              {terms.map(({ term }) => (
+                <React.Fragment key={term.abbreviation}>
+                  <dt>
+                    {term.abbreviation} ({term.name})
+                  </dt>
+                  <dd>{term.description}</dd>
+                </React.Fragment>
+              ))}
+            </dl>
           </div>
         </div>
       </Layout>
@@ -49,6 +67,11 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
@@ -62,6 +85,16 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+        }
+        childGlossaryTermRefs {
+          terms {
+            count
+            term {
+              abbreviation
+              description
+              name
+            }
+          }
         }
       }
       author {

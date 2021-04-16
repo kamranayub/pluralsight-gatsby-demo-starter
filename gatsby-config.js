@@ -47,17 +47,18 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-source-contentful",
-      options: contentfulConfig,
-    },
+    "gatsby-plugin-sharp",    
     {
       resolve: "@kamranayub/gatsby-source-globomantics-glossary",
       options: {
         apiKey: "your_secret_token_here",
       },
     },
+    {
+      resolve: "gatsby-source-contentful",
+      options: contentfulConfig,
+    },
+    "@kamranayub/gatsby-transformer-globomantics-glossary",
     {
       resolve: require.resolve("./src/plugins/blog-posts"),
       options: { authorId }
