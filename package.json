@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "author": "Kamran Ayub (@kamranayub)",
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "https://github.com/kamranayub/pluralsight-gatsby-demo-starter/issues"
   },
   "dependencies": {
     "@kamranayub/gatsby-theme-globomantics-blog": "1.0.0-pr-8.4",
@@ -19,7 +19,7 @@
     "netlify-cli": "^3.17.1"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12.13.0"
   },
   "homepage": "https://github.com/kamranayub/pluralsight-gatsby-demo-starter#readme",
   "keywords": [
@@ -42,5 +42,10 @@
     "setup": "node ./bin/setup.js",
     "netlify:login": "netlify login",
     "netlify:deploy": "netlify deploy -d public -p"
+  },
+  "resolutions": {
+    "graphql": "^15.4.0",
+    "graphql-compose": "^7.25.0",
+    "webpack": "^5.24.2"
   }
 }
