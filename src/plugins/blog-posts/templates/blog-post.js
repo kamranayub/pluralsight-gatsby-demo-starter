@@ -7,6 +7,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import Head from "../../../components/head";
 import Layout from "../../../components/layout";
 
+import { glossary } from "./blog-post.module.css";
 import * as heroStyles from "../../../components/hero.module.css";
 
 class BlogPostTemplate extends React.Component {
@@ -45,7 +46,7 @@ class BlogPostTemplate extends React.Component {
             />
             <hr />
             <h3>Glossary</h3>
-            <dl className={styles.glossary}>
+            <dl className={glossary}>
               {terms.map(({ term }) => (
                 <React.Fragment key={term.abbreviation}>
                   <dt>
@@ -90,8 +91,8 @@ export const pageQuery = graphql`
             count
             term {
               abbreviation
-              name
               description
+              name
             }
           }
         }

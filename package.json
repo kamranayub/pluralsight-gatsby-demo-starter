@@ -10,7 +10,7 @@
   "dependencies": {
     "@kamranayub/gatsby-source-globomantics-glossary": "0.1.0-pr-2.1",
     "@kamranayub/gatsby-transformer-globomantics-glossary": "0.1.0-pr-3.2",
-    "gatsby": "^3.2.1",
+    "gatsby": "^3.3.0",
     "gatsby-plugin-image": "^1.2.1",
     "gatsby-plugin-react-helmet": "^4.2.0",
     "gatsby-plugin-sharp": "^3.2.1",
