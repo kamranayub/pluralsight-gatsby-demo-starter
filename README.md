@@ -16,7 +16,7 @@ yarn # or npm, see note
 
 ## Sample Contentful Tokens
 
-The tokens in the `.env*` files are read-only tokens from my Contentful sample space. They are safe to share and use since they are not "Admin Tokens."
+The tokens in the `.env*` files are [read-only tokens](https://www.contentful.com/developers/docs/references/content-delivery-api/) from my Contentful sample space. They are safe to share and use since they are not "Admin Tokens."
 
 If you don't want to use your own Contentful account, you may use my demo tokens:
 
