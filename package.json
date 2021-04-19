@@ -1,35 +1,27 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "globomantics-starter-blog-starter",
+  "description": "Globomantics Gatsby Starter Blog",
   "private": true,
   "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
+  "author": "Kamran Ayub (@kamranayub)",
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "https://github.com/kamranayub/pluralsight-gatsby-demo-starter/issues"
   },
   "dependencies": {
-    "@kamranayub/gatsby-source-globomantics-glossary": "1.0.0",
-    "@kamranayub/gatsby-transformer-globomantics-glossary": "0.1.0-pr-3.4",
+    "@kamranayub/gatsby-theme-globomantics-blog": "1.0.0-pr-8.4",
     "gatsby": "^3.3.0",
-    "gatsby-plugin-image": "^1.2.1",
-    "gatsby-plugin-react-helmet": "^4.2.0",
-    "gatsby-plugin-sharp": "^3.2.1",
-    "gatsby-source-contentful": "^5.2.1",
-    "gatsby-transformer-remark": "^3.2.0",
-    "gatsby-transformer-sharp": "^3.2.0",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "contentful-import": "^8.0.4",
-    "netlify-cli": "^3.17.1"
+    "contentful-import": "^8.1.0",
+    "netlify-cli": "^3.18.2"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12.13.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "https://github.com/kamranayub/pluralsight-gatsby-demo-starter#readme",
   "keywords": [
     "gatsby",
     "contentful",
@@ -39,7 +31,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "git+https://github.com/kamranayub/pluralsight-gatsby-demo-starter.git"
   },
   "scripts": {
     "dev": "gatsby develop",
