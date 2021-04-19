@@ -1,8 +1,6 @@
 import React from "react";
 import Header from "@kamranayub/gatsby-theme-globomantics-blog/src/components/header";
 
-import styles from './header.marketing.module.css'
+import { wrapper } from "./header.marketing.module.css";
 
-export default () => (
-  <Header className={styles.wrapper} tagline="MARKETING BLOGS" />
-);
+export default () => <Header className={wrapper} tagline="MARKETING BLOGS" />;
