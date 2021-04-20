@@ -1616,10 +1616,10 @@
   dependencies:
     node-fetch "^2.6.1"
 
-"@kamranayub/gatsby-theme-globomantics-blog@1.0.0-pr-9.4":
-  version "1.0.0-pr-9.4"
-  resolved "https://npm.pkg.github.com/download/@kamranayub/gatsby-theme-globomantics-blog/1.0.0-pr-9.4/edf43901bd04dc8fb047437decb0a05fc2da77035287e7e17b8333b845d812f0#a259a3011255eb2d7f4e168411fa0d543e3c6b50"
-  integrity sha512-H/pAKIPcqhEB2BFSkQc/rl2NGaVccoqSpuOBY+WSWcP22fp5N0H+GQ6KB86gCSHxrXjOeswP3srXKLEQGN4r7A==
+"@kamranayub/gatsby-theme-globomantics-blog@1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@kamranayub/gatsby-theme-globomantics-blog/1.0.0/531db59efe1908d32d053aeee973d348140373386d696bd8f3b882465100c800#3849532001f7ff019a35825ac7d6b66380fc0890"
+  integrity sha512-Pc4DWw8BLRzINLfhFdg7Mo9JiRmWbjjRchqqMvZtewqhZIeJsxWWJx45v8Sc1z7SI7p2YOJFbeHPoeRTdjaCUw==
   dependencies:
     "@kamranayub/gatsby-source-globomantics-glossary" "1.0.0"
     "@kamranayub/gatsby-transformer-globomantics-glossary" "1.0.0"
